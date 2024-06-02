@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package contract.v1;
+
+message Events {
+    repeated warheadfactory_WarheadClaimed warheadfactory_warhead_claimeds = 1;
+    repeated warheadfactory_WarheadCreated warheadfactory_warhead_createds = 2;
+    repeated warheadfactory_WarheadCreatedWithReceiver warheadfactory_warhead_created_with_receivers = 3;
+    repeated warheadfactory_WarheadDropped warheadfactory_warhead_droppeds = 4;
+}
+
+message warheadfactory_WarheadClaimed {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    string warhead_id = 5;
+    bytes claimer = 6;
+    string claimed_at = 7;
+}
+
+message warheadfactory_WarheadCreated {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    string warhead_id = 5;
+    bytes dropper = 6;
+    bytes warhead_address = 7;
+}
+
+message warheadfactory_WarheadCreatedWithReceiver {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    string warhead_id = 5;
+    bytes dropper = 6;
+    bytes warhead_address = 7;
+    bytes target_receiver = 8;
+}
+
+message warheadfactory_WarheadDropped {
+    string evt_tx_hash = 1;
+    uint32 evt_index = 2;
+    google.protobuf.Timestamp evt_block_time = 3;
+    uint64 evt_block_number = 4;
+    string warhead_id = 5;
+    string target_lat = 6;
+    string target_long = 7;
+    string impact_time = 8;
+}

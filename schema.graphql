@@ -1,0 +1,42 @@
+type warheadfactory_warhead_claimed @entity {
+    id: ID!
+    evt_tx_hash: String!
+    evt_index: BigInt!
+    evt_block_time: String!
+    evt_block_number: BigInt!
+    claimed_at: BigDecimal!
+    claimer: String!
+    warhead_id: BigDecimal!
+}
+type warheadfactory_warhead_created @entity {
+    id: ID!
+    evt_tx_hash: String!
+    evt_index: BigInt!
+    evt_block_time: String!
+    evt_block_number: BigInt!
+    dropper: String!
+    warhead_address: String!
+    warhead_id: BigDecimal!
+}
+type warheadfactory_warhead_created_with_receiver @entity {
+    id: ID!
+    evt_tx_hash: String!
+    evt_index: BigInt!
+    evt_block_time: String!
+    evt_block_number: BigInt!
+    dropper: String!
+    target_receiver: String!
+    warhead_address: String!
+    warhead_id: BigDecimal!
+}
+type warheadfactory_warhead_dropped @entity {
+    id: ID!
+    evt_tx_hash: String!
+    evt_index: BigInt!
+    evt_block_time: String!
+    evt_block_number: BigInt!
+    impact_time: BigDecimal!
+    target_lat: BigDecimal!
+    target_long: BigDecimal!
+    warhead_id: BigDecimal!
+}
